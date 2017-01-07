@@ -1,0 +1,6 @@
+setuptools
+plone.app.dexterity
+plone.namedfile [blobs]
+
+[test]
+plone.app.testing

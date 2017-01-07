@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<model xmlns="http://namespaces.plone.org/supermodel/schema"
+       xmlns:form="http://namespaces.plone.org/supermodel/form">
+
+    <schema>
+
+        <!-- field definitions -->
+	<field name="matricola" type="zope.schema.TextLine">
+		<title>Matricola</title>
+	</field>
+
+	<field name="name" type="zope.schema.TextLine">
+      		<description/>
+      		<title>Nome</title>
+    	</field>
+
+    	<field name="surname" type="zope.schema.TextLine">
+      		<description/>
+      		<title>Cognome</title>
+    	</field>
+    
+    	<field name="avg" type="zope.schema.Float">
+      		<description/>
+      		<title>Media</title>
+    	</field>
+
+    	<field name="titolo" type="zope.schema.TextLine">
+      		<description>Titolo del progetto di tesi presentato</description>
+      		<title>Progetto di tesi</title>
+    	</field>
+
+    	<field name="note" type="zope.schema.Text">
+      		<description>Note aggiuntive sul progetto di tesi presentato</description>
+      		<required>False</required>
+      		<title>Note progetto di tesi</title>
+    	</field>
+
+    </schema>
+
+</model>

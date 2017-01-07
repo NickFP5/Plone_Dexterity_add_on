@@ -1,0 +1,95 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:grok="http://namespaces.zope.org/grok"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="lauree.tipi">
+
+  <!-- Include configuration for dependencies listed in setup.py -->
+  <includeDependencies package="." />
+
+  <!-- Grok the package to initialise schema interfaces and content classes -->
+  <grok:grok package="." />
+
+  <i18n:registerTranslations directory="locales" />
+
+  <!-- Register an extension profile to make the product installable
+       in Plone -->
+  <genericsetup:registerProfile
+      name="default"
+      title="lauree.tipi"
+      directory="profiles/default"
+      description="Extension profile for "
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <!-- -*- extra stuff goes here -*- -->
+
+  <browser:page
+        name="sampleview"
+        for="lauree.tipi.laureando.Ilaureando"
+        class="lauree.tipi.laureando.SampleView"
+        template="laureando_templates/sampleview.pt"
+        permission="zope2.View"
+        />
+
+  <browser:page
+        name="sampleview"
+        for="lauree.tipi.sessione_di_laurea.Isessione_di_laurea"
+        class="lauree.tipi.sessione_di_laurea.SampleView"
+        template="sessione_di_laurea_templates/sampleview.pt"
+        permission="zope2.View"
+        />
+
+  <browser:page
+        name="tabularsessionview"
+        for="lauree.tipi.sessione_di_laurea.Isessione_di_laurea"
+        class="lauree.tipi.sessione_di_laurea.SampleView"
+        template="sessione_di_laurea_templates/tabularsessionview.pt"
+        permission="zope2.View"
+        />
+
+  <permission
+        id="laureando.privilegi_presidente"
+        title="Laureando: presidente"
+        />
+
+  <permission
+        id="laureando.privilegi_segreteria"
+        title="Laureando: segreteria"
+        />
+
+  <permission
+        id="laureando.privilegi_commissione"
+        title="Laureando: commissione"
+        />
+
+  <browser:view
+        name="download_as_csv_file"
+        for="lauree.tipi.sessione_di_laurea.Isessione_di_laurea"
+        class="lauree.tipi.sessione_di_laurea.CSVView"
+        permission="zope2.View"
+        />
+
+  <browser:page
+        name="import_from_csv_file"
+        for="lauree.tipi.sessione_di_laurea.Isessione_di_laurea"
+        class="lauree.tipi.sessione_di_laurea.ImportFromCSVView"
+	template="sessione_di_laurea_templates/import_from_csv.pt"
+        permission="zope2.View"
+        />
+
+
+  <browser:page
+        name="approva_laureandi_collettivamente"
+        for="lauree.tipi.sessione_di_laurea.Isessione_di_laurea"
+        class="lauree.tipi.sessione_di_laurea.ChangeStateToLaureatoView"
+        template="sessione_di_laurea_templates/mass_approval.pt"
+        permission="zope2.View"
+        />
+
+
+</configure>

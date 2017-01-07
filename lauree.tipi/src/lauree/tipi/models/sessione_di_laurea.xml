@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+<model xmlns="http://namespaces.plone.org/supermodel/schema"
+       xmlns:form="http://namespaces.plone.org/supermodel/form">
+
+    <schema>
+
+        <!-- field definitions -->
+	<field name="ID" type="zope.schema.TextLine">
+      		<description>ID sessione di laurea (es: Lug14)</description>
+      		<title>ID</title>
+      		<required>True</required>
+    	</field>
+    
+    	<field name="periodo_inizio" type="zope.schema.Date">
+      		<description/>
+      		<title>Data inizio sessione di laurea</title>
+      		<required>True</required>
+    	</field>
+    
+    	<field name="periodo_fine" type="zope.schema.Date">
+      		<description/>
+      		<title>Data fine sessione di laurea</title>
+      		<required>True</required>
+    	</field>
+    
+    
+    	<field name="note" type="zope.schema.Text">
+      		<description/>
+      		<title>Note</title>
+      		<required>False</required>
+    	</field>
+
+    </schema>
+
+</model>
